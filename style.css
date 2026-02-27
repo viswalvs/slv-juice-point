@@ -55,9 +55,15 @@ body {
   transform: scale(1.05);
 }
 
-.product-img {
-  font-size: 40px;
-  margin-bottom: 10px;
+.product-img img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  transition: 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .bottom-nav {
@@ -72,4 +78,23 @@ body {
   border-top-right-radius: 25px;
   box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
   font-size: 22px;
+}
+
+.product-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+.product-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
