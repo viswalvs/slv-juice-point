@@ -7,8 +7,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <div class="app">
@@ -24,112 +25,27 @@
   </div>
 
   <div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search your favorite juice...">
-</div>
-
-<div class="tabs">
-  <button class="tab-btn active" onclick="filterCategory('All')">All</button>
-  <button class="tab-btn" onclick="filterCategory('Fruit Juices')">Fruits</button>
-  <button class="tab-btn" onclick="filterCategory('Vegetable Juices')">Vegetables</button>
-  <button class="tab-btn" onclick="filterCategory('Milkshakes')">Milkshakes</button>
-</div>
-
-<div id="menu-container"></div>
-
-</div>
-
-  <!-- FRUIT JUICES -->
-  <h3 class="section-title">Popular Juices</h3>
-
-  <div class="product-scroll">
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/mango.png" alt="Mango Juice">
-      </div>
-      <h4>Mango Juice</h4>
-      <p>₹30 | ₹50</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/apple.png" alt="Apple Juice">
-      </div>
-      <h4>Apple Juice</h4>
-      <p>₹40 | ₹60</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/watermelon.png" alt="Watermelon Juice">
-      </div>
-      <h4>Watermelon</h4>
-      <p>₹30 | ₹50</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/pineapple.png" alt="Pineapple Juice">
-      </div>
-      <h4>Pineapple</h4>
-      <p>₹30 | ₹50</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/pomegranate.png" alt="Pomegranate Juice">
-      </div>
-      <h4>Pomegranate</h4>
-      <p>₹40 | ₹60</p>
-    </div>
-
+    <input type="text" id="searchInput" placeholder="Search your favorite juice...">
   </div>
 
-  <!-- MILKSHAKES -->
-  <h3 class="section-title">Milkshakes</h3>
-
-  <div class="product-scroll">
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/oreo.png" alt="Oreo Milkshake">
-      </div>
-      <h4>Oreo Chocolate</h4>
-      <p>₹90</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/strawberry.png" alt="Strawberry Milkshake">
-      </div>
-      <h4>Strawberry</h4>
-      <p>₹80</p>
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="images/chocolate.png" alt="Chocolate Milkshake">
-      </div>
-      <h4>Chocolate</h4>
-      <p>₹80</p>
-    </div>
-
+  <div class="tabs">
+    <button class="tab-btn active" onclick="filterCategory('All')">All</button>
+    <button class="tab-btn" onclick="filterCategory('Fruit Juices')">Fruits</button>
+    <button class="tab-btn" onclick="filterCategory('Vegetable Juices')">Vegetables</button>
+    <button class="tab-btn" onclick="filterCategory('Milkshakes')">Milkshakes</button>
   </div>
 
+  <div id="menu-container"></div>
+
 </div>
 
-<!-- BOTTOM NAVIGATION -->
-<div class="bottom-nav">
-  <div>🏠</div>
-  <div>🍹</div>
-  <div>⭐</div>
-  <div>👤</div>
-</div>
 
+<!-- FLOATING CART -->
 <div class="cart-floating" onclick="openCart()">
   🛒 <span id="cart-count">0</span>
 </div>
 
+<!-- CART MODAL -->
 <div class="cart-modal" id="cartModal">
   <div class="cart-content">
     <h3>Your Cart</h3>
@@ -140,5 +56,6 @@
 
 
 <script src="script.js"></script>
+
 </body>
 </html>
