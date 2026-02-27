@@ -4,82 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SLV JUICE POINT</title>
-<link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
-</head>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
-<header>
-  <h1>SLV JUICE POINT</h1>
-  <p>Fresh • Healthy • Natural</p>
-</header>
+<div class="app">
 
-<section class="hero">
-  <h2>Refreshing Juices Everyday 🍹</h2>
-  <button onclick="scrollToMenu()">View Menu</button>
-</section>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <h2>SLV JUICE POINT</h2>
+    <span>🍹</span>
+  </div>
 
-<section id="menu" class="menu">
+  <!-- HERO SECTION -->
+  <div class="hero-card">
+    <h3>Choose the drink you love</h3>
+    <p>Fresh & Healthy Everyday</p>
+  </div>
 
-<!-- FRUIT JUICES -->
-<h2>🍊 Fruit Juices</h2>
+  <!-- CATEGORY TITLE -->
+  <h3 class="section-title">Popular Juices</h3>
 
-<div class="card"><h3>Apple Juice</h3><p>Regular: ₹40 | Special: ₹60</p></div>
-<div class="card"><h3>Dragon Fruit Juice</h3><p>Regular: ₹50</p></div>
-<div class="card"><h3>Kiwi Juice</h3><p>Regular: ₹50</p></div>
-<div class="card"><h3>Avocado Juice</h3><p>Regular: ₹60 | Special: ₹80</p></div>
-<div class="card"><h3>Pomegranate Juice</h3><p>Regular: ₹40 | Special: ₹60</p></div>
-<div class="card"><h3>Musk Melon Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Anjeer Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Grape Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Mosambi Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Banana Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Pineapple Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Sapota Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Mango Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Papaya Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
-<div class="card"><h3>Watermelon Juice</h3><p>Regular: ₹30 | Special: ₹50</p></div>
+  <!-- HORIZONTAL SCROLL CARDS -->
+  <div class="product-scroll">
 
-<!-- SPECIAL ITEM -->
-<h2>⭐ Special Item</h2>
-<div class="card"><h3>Dry Fruit Juice</h3><p>₹100</p></div>
+    <div class="product-card">
+      <div class="product-img">🥭</div>
+      <h4>Mango</h4>
+      <p>₹30 | ₹50</p>
+    </div>
 
-<!-- VEGETABLE JUICES -->
-<h2>🥕 Vegetable Juices</h2>
+    <div class="product-card">
+      <div class="product-img">🍎</div>
+      <h4>Apple</h4>
+      <p>₹40 | ₹60</p>
+    </div>
 
-<div class="card"><h3>Carrot Juice</h3><p>₹30</p></div>
-<div class="card"><h3>Beetroot Juice</h3><p>₹30</p></div>
-<div class="card"><h3>ABC Juice</h3><p>₹30</p></div>
-<div class="card"><h3>Bitter Gourd Juice</h3><p>₹30</p></div>
-<div class="card"><h3>Bottle Gourd Juice</h3><p>₹30</p></div>
-<div class="card"><h3>Ash Gourd Juice</h3><p>₹30</p></div>
-<div class="card"><h3>Cucumber Juice</h3><p>₹30</p></div>
-<div class="card"><h3>Tomato Juice</h3><p>₹30</p></div>
-<div class="card"><h3>Mint Juice</h3><p>₹20</p></div>
-<div class="card"><h3>Coriander Juice</h3><p>₹20</p></div>
-<div class="card"><h3>Tulsi Juice</h3><p>₹20</p></div>
-<div class="card"><h3>Munagaku (Moringa) Juice</h3><p>₹20</p></div>
+    <div class="product-card">
+      <div class="product-img">🍉</div>
+      <h4>Watermelon</h4>
+      <p>₹30 | ₹50</p>
+    </div>
 
-<!-- MILKSHAKES -->
-<h2>🥤 Milkshakes</h2>
+    <div class="product-card">
+      <div class="product-img">🍍</div>
+      <h4>Pineapple</h4>
+      <p>₹30 | ₹50</p>
+    </div>
 
-<div class="card"><h3>Butterscotch Milkshake</h3><p>₹80</p></div>
-<div class="card"><h3>Chocolate Milkshake</h3><p>₹80</p></div>
-<div class="card"><h3>Strawberry Milkshake</h3><p>₹80</p></div>
-<div class="card"><h3>Vanilla Milkshake</h3><p>₹80</p></div>
-<div class="card"><h3>Oreo Vanilla Milkshake</h3><p>₹90</p></div>
-<div class="card"><h3>Oreo Chocolate Milkshake</h3><p>₹90</p></div>
+  </div>
 
-</section>
+  <!-- MILKSHAKES -->
+  <h3 class="section-title">Milkshakes</h3>
 
-<a class="whatsapp"
-href="https://wa.me/91XXXXXXXXXX?text=Hello%20I%20want%20to%20order%20juice%20from%20SLV%20JUICE%20POINT"
-target="_blank">
-Order on WhatsApp
-</a>
+  <div class="product-scroll">
 
-<script src="script.js"></script>
+    <div class="product-card">
+      <div class="product-img">🥤</div>
+      <h4>Oreo Chocolate</h4>
+      <p>₹90</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">🥤</div>
+      <h4>Strawberry</h4>
+      <p>₹80</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+  <div>🏠</div>
+  <div>🍹</div>
+  <div>⭐</div>
+  <div>👤</div>
+</div>
 
 </body>
 </html>
