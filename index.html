@@ -23,7 +23,18 @@
     <p>Fresh & Healthy Everyday</p>
   </div>
 
-  <div id="menu-container"></div>
+  <div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search your favorite juice...">
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="filterCategory('All')">All</button>
+  <button class="tab-btn" onclick="filterCategory('Fruit Juices')">Fruits</button>
+  <button class="tab-btn" onclick="filterCategory('Vegetable Juices')">Vegetables</button>
+  <button class="tab-btn" onclick="filterCategory('Milkshakes')">Milkshakes</button>
+</div>
+
+<div id="menu-container"></div>
 
 </div>
 
@@ -115,6 +126,17 @@
   <div>👤</div>
 </div>
 
+<div class="cart-floating" onclick="openCart()">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<div class="cart-modal" id="cartModal">
+  <div class="cart-content">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <button onclick="closeCart()">Close</button>
+  </div>
+</div>
 
 
 <script src="script.js"></script>
