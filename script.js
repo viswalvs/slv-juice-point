@@ -111,10 +111,57 @@ function filterCategory(category) {
 searchInput.addEventListener("input", renderMenu);
 
 function addToCart(name, price) {
+
   const existing = cart.find(item => item.name === name);
-  if (existing) existing.qty++;
-  else cart.push({ name, price, qty: 1 });
-  updateCart();
+
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      qty: 1
+    });
+  }
+
+  updateCartCount();
+}
+
+function updateCartCount() {
+
+  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  document.getElementById("cart-count").textContent = totalItems;
+}
+
+function increaseQty(name){
+
+  const item = cart.find(i => i.name === name);
+
+  if(item){
+    item.qty++;
+  }
+
+  openCart();
+  updateCartCount();
+}
+
+function decreaseQty(name){
+
+  const item = cart.find(i => i.name === name);
+
+  if(item){
+
+    item.qty--;
+
+    if(item.qty === 0){
+      cart = cart.filter(i => i.name !== name);
+    }
+
+  }
+
+  openCart();
+  updateCartCount();
 }
 
 function updateCart() {
@@ -122,43 +169,104 @@ function updateCart() {
   document.getElementById("cart-count").textContent = count;
 }
 
-function openCart() {
+function openCart(){
+
+  const modal = document.getElementById("cartModal");
   const cartItems = document.getElementById("cart-items");
+
   cartItems.innerHTML = "";
 
   let total = 0;
 
-  cart.forEach(item => {
-    total += item.qty * item.price;
+  if(cart.length === 0){
+    cartItems.innerHTML = "<p>Your cart is empty</p>";
+  }
 
-    cartItems.innerHTML += `
-      <div class="cart-row">
-        <span>${item.name}</span>
-        <div class="qty-controls">
-          <button onclick="changeQty('${item.name}', -1)">−</button>
-          <span>${item.qty}</span>
-          <button onclick="changeQty('${item.name}', 1)">+</button>
-        </div>
-        <span>₹${item.qty * item.price}</span>
+  cart.forEach(item => {
+
+    total += item.price * item.qty;
+
+    const row = document.createElement("div");
+    row.className = "cart-row";
+
+    row.innerHTML = `
+      <span>${item.name}</span>
+
+      <div class="qty-controls">
+        <button onclick="decreaseQty('${item.name}')">-</button>
+        <span>${item.qty}</span>
+        <button onclick="increaseQty('${item.name}')">+</button>
       </div>
+
+      <span>₹${item.price * item.qty}</span>
     `;
+
+    cartItems.appendChild(row);
+
   });
 
-  cartItems.innerHTML += `<hr><h4>Total: ₹${total}</h4>`;
+  const totalRow = document.createElement("div");
+  totalRow.className = "cart-total";
 
-  document.getElementById("cartModal").style.display = "flex";
+  totalRow.innerHTML = `
+     <strong>Total : ₹${total}</strong>
+  `;
+
+  cartItems.appendChild(totalRow);
+
+  modal.classList.add("show");
+
 }
 
-function changeQty(name, change) {
-  const item = cart.find(i => i.name === name);
-  item.qty += change;
-  if (item.qty <= 0) cart = cart.filter(i => i.name !== name);
-  updateCart();
-  openCart();
+function closeCart(){
+  document.getElementById("cartModal").classList.remove("show");
 }
 
-function closeCart() {
-  document.getElementById("cartModal").style.display = "none";
+// Animate cards on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+
+      // stagger delay
+      setTimeout(() => {
+        entry.target.classList.add("show");
+      }, index * 80);
+
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+function observeCards() {
+  const cards = document.querySelectorAll(".product-card");
+  cards.forEach(card => observer.observe(card));
 }
+
+// ripple button effect
+document.addEventListener("click", function(e) {
+
+  if (e.target.classList.contains("add-btn")) {
+
+    const button = e.target;
+    const circle = document.createElement("span");
+
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.offsetX - diameter / 2}px`;
+    circle.style.top = `${e.offsetY - diameter / 2}px`;
+
+    button.appendChild(circle);
+
+    setTimeout(() => {
+      circle.remove();
+    }, 600);
+  }
+});
+
+
 
 renderMenu();
+observeCards();
